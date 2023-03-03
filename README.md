@@ -46,16 +46,16 @@ CleanCut is a social media app where interested people can post their haircuts t
 ### 2. Screen Archetypes
 
 * Login Screen
-    User can login here
+      User can login here
 * Registration Screen
-    User can create a new account here if they don't already have one
-* Stream
-    User can view a feed of photos and give their reviews based on the tab they are currently on (men or women)
+      User can create a new account here if they don't already have one
+* Stream 
+      User can view a feed of photos and give their reviews based on the tab they are currently on (men or women)
 * Creation
-    User can post a new photo to their feed as well as tag their barber
+      User can post a new photo to their feed as well as tag their barber
 * Profile
-    Users can view all their details and friends here
-    Barbers can also see all the photos they were tagged in here
+      Users can view all their details and friends here
+      Barbers can also see all the photos they were tagged in here
         
 ### 3. Navigation
 
