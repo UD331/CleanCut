@@ -25,9 +25,12 @@ CleanCut is a social media app where interested people can post their haircuts t
 
 **Required Must-have Stories**
 
+* Users can create their IDs and can then later login using said IDs.
 * Backend database to store User details as well as their posts and friends.
+* USers can add their friends through the app.
 * Photos that can be taken from both the device library as well as from the camera.
 * A rating system on a scale to allow your friends to rate your new haircut.
+* A profile page to see all theirs photos and friends.
 * A way to restrict non-friends from seeing your pictures.
 * A separate barber profile system on which they can showcase the haircuts they did.
 * A tag system to tag your barber so they can get publicity / notoriety based on how the hair cut is received.
@@ -42,20 +45,26 @@ CleanCut is a social media app where interested people can post their haircuts t
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
-
+* Login Screen
+    User can login here
+* Registration Screen
+    User can create a new account here if they don't already have one
+* Stream
+    User can view a feed of photos and give their reviews based on the tab they are currently on (men or women)
+* Creation
+    User can post a new photo to their feed as well as tag their barber
+* Profile
+    Users can view all their details and friends here
+    Barbers can also see all the photos they were tagged in here
+        
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Login / Sign up
+* Home Feed separated into different tabs
+* Profile
+* Post a photo
 
 **Flow Navigation** (Screen to Screen)
 
