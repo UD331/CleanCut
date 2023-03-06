@@ -68,12 +68,19 @@ CleanCut is a social media app where interested people can post their haircuts t
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* [Login]
+   * [Profile Page]
+   * [Womens/Mens page]
+   * [Sign Up]
+* [Sign Up]
+   * [Womens/Mens page]
+   * [Profile Page]
+   * [Womens/Mens page]
+* [Profile Page]
+   * [Womens/Mens page]
+   * [Login]
+* [Womens/Mens page]
+   * [Profile Page]
 
 ## Wireframes
 
