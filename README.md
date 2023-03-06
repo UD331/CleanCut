@@ -83,6 +83,8 @@ CleanCut is a social media app where interested people can post their haircuts t
    * [Profile Page]
 
 ## Wireframes
+<img src="https://i.imgur.com/lYHn37F.jpg" height=200>
+
 
 ## Schema 
 [This section will be completed in Unit 9]
