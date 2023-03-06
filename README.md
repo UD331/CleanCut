@@ -83,8 +83,9 @@ CleanCut is a social media app where interested people can post their haircuts t
    * [Profile Page]
 
 ## Wireframes
-<img src="https://i.imgur.com/lYHn37F.jpg" height=200>
-
+<img src="https://github.com/UD331/CleanCut/blob/main/wireframes/Screenshot%202023-03-06%20at%206.26.11%20PM.png" height=200>
+<img src="https://github.com/UD331/CleanCut/blob/main/wireframes/Screenshot%202023-03-06%20at%206.26.11%20PM.png" height=200>
+<img src="https://github.com/UD331/CleanCut/blob/main/wireframes/Screenshot%202023-03-06%20at%206.26.11%20PM.png" height=200>
 
 ## Schema 
 [This section will be completed in Unit 9]
