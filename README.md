@@ -1,97 +1,128 @@
-# **CleanCut**
+# Environment steup
 
-## Table of Contents
-1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+## Install pre-requisites
 
-## Overview
-### Description
-CleanCut is a social media app where interested people can post their haircuts to be seen and rated by their friend.
+* NodeJS
+* yarn
+* Java
 
-### App Evaluation
-[Evaluation of your app across the following attributes]
-- **Category:** Social Media
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+## Install dependencies
+This project is a managed deployment on Amazon Web Services using AWS Cognito for User Authentication. Dynamodb for database storage. S3 for large/media file type storage. API gateway for managing access to available routes.
 
-## Product Spec
+To install the project dependencies do the following in the backend directory:
 
-### 1. User Stories (Required and Optional)
+```
+yarn install
+```
 
-**Required Must-have Stories**
+## Install the local DynamoDB service
+This project, uses a local instance of DynamoDB. Please make sure you have Java installed and in your path. Once you do, install the DynamoDB with:
 
-* Users can create their IDs and can then later login using said IDs.
-* Backend database to store User details as well as their posts and friends.
-* USers can add their friends through the app.
-* Photos that can be taken from both the device library as well as from the camera.
-* A rating system on a scale to allow your friends to rate your new haircut.
-* A profile page to see all theirs photos and friends.
-* A way to restrict non-friends from seeing your pictures.
-* A separate barber profile system on which they can showcase the haircuts they did.
-* A tag system to tag your barber so they can get publicity / notoriety based on how the hair cut is received.
-* Allowing users to post comments on other's pictures.
-* Separate tabs for men and women haircuts.
+```
+yarn serverless dynamodb install
+```
 
+## Run the service
+Now that the DB is installed, you can run the service with:
+<pre><code>yarn start</code></pre>
 
-**Optional Nice-to-have Stories**
+If all went well, you'll see something like this:
 
-* Adding geolocation to the barbers so the users can see the locaton of their shops.
-* The rating system allowing top-rated haircuts to rise to the top of the tab.
+```
+Offline [http for lambda] listening on http://localhost:3002
+Function names exposed for local invocation by aws-sdk:
+           * graphql: api-dev-graphql
+           * customMessage: api-dev-customMessage
+           * auth: api-dev-auth
 
-### 2. Screen Archetypes
+   ┌───────────────────────────────────────────────────────────────────────────┐
+   │                                                                           │
+   │   ANY | http://localhost:3000/graphql                                     │
+   │   POST | http://localhost:3000/2015-03-31/functions/graphql/invocations   │
+   │                                                                           │
+   └───────────────────────────────────────────────────────────────────────────┘
 
-* Login Screen
-  *  User can login here
-* Registration Screen
-  *  User can create a new account here if they don't already have one
-* Stream 
-  *  User can view a feed of photos and give their reviews based on the tab they are currently on (men or women)
-* Creation
-  *  User can post a new photo to their feed as well as tag their barber
-* Profile
-  *  Users can view all their details and friends here
-  *  Barbers can also see all the photos they were tagged in here
-        
-### 3. Navigation
+Server ready: http://localhost:3000 🚀
+```
 
-**Tab Navigation** (Tab to Screen)
+Now you can access the graphql endpoint at http://localhost:3000/graphql. If you access the endpoint with a browser, you'll see a graphql client. You can also use any HTTP client, like Postman, to make HTTP requests to that endpoint.
 
-* Login / Sign up
-* Home Feed separated into different tabs
-* Profile
-* Post a photo
+## Run the unit tests
+Make sure you are running the database.
 
-**Flow Navigation** (Screen to Screen)
+```
+yarn db
+```
 
-* [Login]
-   * [Profile Page]
-   * [Womens/Mens page]
-   * [Sign Up]
-* [Sign Up]
-   * [Womens/Mens page]
-   * [Profile Page]
-   * [Womens/Mens page]
-* [Profile Page]
-   * [Womens/Mens page]
-   * [Login]
-* [Womens/Mens page]
-   * [Profile Page]
+In a separate window, run the unit tests.
 
-## Wireframes
-<img src="https://github.com/UD331/CleanCut/blob/main/wireframes/Screenshot%202023-03-06%20at%206.26.11%20PM.png" height=200>
-<img src="https://github.com/UD331/CleanCut/blob/main/wireframes/Screenshot%202023-03-06%20at%206.26.24%20PM.png" height=200>
-<img src="https://github.com/UD331/CleanCut/blob/main/wireframes/Screenshot%202023-03-06%20at%206.26.36%20PM.png" height=200>
+```
+yarn test
+```
 
-## Schema 
-[This section will be completed in Unit 9]
-### Models
-[Add table of models]
-### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+## Examples
+
+Here is a simple GraphQL query to retrieve the list of users:
+
+```
+{
+    listUsers{
+        userId
+        email
+        first
+        last
+    }
+}
+```
+
+Here is a simple query to create a new user:
+
+```
+mutation {
+  createUser(userRole:SUPERADMIN, companyId:"Company123", email: "you@company.123", first:"Jane", last:"John"){
+    userId
+    userRole
+    state
+    last
+    first
+  }
+}
+
+```
+
+# Project Structure
+<pre>
+- auth/  
+- dynamodb/
+  - Table1.js
+  - Table2.js
+  - Table3.js
+- graphql/
+  - handler.js
+  - types/
+    - typeLoader.js
+  - resolvers/
+    - resolverLoader.js
+- libs/
+- resources/
+- package.json
+- serverless.yml
+</pre>
+
+## auth/
+Contains (aws cognito)functions responsible for user account creation, authentication etc.
+
+## dynamodb/
+Contains functions for database operations. Create/update/delete.
+
+## graphql/
+Contains graphql Apollo server, schema, and resolvers
+
+## libs/ 
+Contains shared code/dependencies
+
+## resources/
+Contains servlerless .yml files for provisioning AWS resources.
+
+## serverless.yml
+Root serverless script, joins all resources files, deployment stages, and plugin dependencies.
